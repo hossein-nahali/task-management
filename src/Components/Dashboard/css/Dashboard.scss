@@ -1,0 +1,123 @@
+.head-dashboard {
+  background-color: #1f1d25;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  min-height: 100vh;
+  overflow-x: auto;
+  top: 0;
+  bottom: 0;
+  transition: all ease .3s;
+  transform-origin: left;
+  transform: translatex(-100%);
+  z-index: 9;
+
+  &.active {
+    transform: translatex(0);
+  }
+
+  .body-dashboard {
+    padding: 80px 15px 0 13px;
+    height: auto;
+
+    > h3 {
+      color: #73727a;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    > ul {
+      margin: 0;
+      list-style: none;
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+      align-content: center;
+      padding: 0 0 20px;
+      border-bottom: 2px solid #3a393e;
+
+      li:nth-child(2) {
+        > a {
+          > img {
+            width: 20px;
+            height: auto;
+            margin: 0 12px 0 2px;
+          }
+        }
+      }
+
+      > li {
+        display: flex;
+        align-content: center;
+        justify-content: flex-start;
+
+        > a {
+          padding: 11px 0;
+          color: #fff;
+          text-decoration: none;
+          font-size: 13px;
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          transition: all .3s ease;
+          border-radius: 6px;
+          background-color: transparent;
+          width: 100%;
+
+          &.active {
+            position: relative;
+
+            &:hover {
+
+              &:after {
+                box-shadow: 30px 0 15px #f3ae3d;
+              }
+            }
+
+            &:after {
+              content: '';
+              width: 3px;
+              height: 25px;
+              position: absolute;
+              background-color: #f3ae3d;
+              left: -13px;
+              border-radius: 10px;
+              top: 10px;
+              box-shadow: 25px 5px 25px #f3ae3d;
+              transition: all .3s ease;
+            }
+          }
+
+          &:hover {
+            background-color: #2b2932;
+            padding: 11px 8px !important;
+          }
+
+          > img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .developer {
+
+    > p {
+      color: #66646a;
+      font-size: 13px;
+      margin: 15px 0 25px;
+
+      > span {
+
+        > a {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.login {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 35px;
+
+  .input-email, .input-password {
+    position: relative;
+    height: 100%;
+
+    &.input-password {
+      margin-top: 23px;
+    }
+
+    input {
+      margin-bottom: 15px;
+      background: none;
+      border: none;
+      height: 40px;
+      width: 100%;
+      outline: none;
+      color: #ffffff;
+      font-size: 18px;
+      border-bottom: 2px solid #3a393e;
+      padding-bottom: 0;
+      display: block;
+
+
+      &:valid ~ label, &:focus ~ label {
+        left: 25px;
+        opacity: 0;
+      }
+
+
+      &::placeholder {
+        font-size: 18px;
+        position: relative;
+        color: #66646a;
+      }
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      font-size: 16px;
+      transition: all .3s ease;
+      pointer-events: none;
+      user-select: none;
+      color: #66646a;
+    }
+  }
+
+  .footer-login {
+    display: flex;
+    align-items: center;
+    height: auto;
+    margin-top: 15px;
+
+    > p {
+      margin: 0 0 0 15px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    > button {
+      background-color: #ffd05a;
+      border-radius: 12px;
+      color: #1f1d25;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 10px 15px;
+      text-align: center;
+      transition: 200ms;
+      box-sizing: border-box;
+      border: 0;
+      font-size: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: 90px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:not(:disabled):focus, &:not(:disabled):hover {
+        outline: 0;
+        background: #f3ae3d;
+      }
+
+      &:disabled {
+        filter: saturate(0.2) opacity(0.5);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+}

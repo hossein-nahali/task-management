@@ -1,0 +1,14 @@
+.loading-parent {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transform: translatey(-30 px);
+
+  > .loading-img {
+    width: 100px;
+    height: 100px;
+    user-select: none;
+  }
+}
