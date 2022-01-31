@@ -8,6 +8,7 @@ import TaskContext from "../../Context/Tasks";
 
 import {getDatabase, ref, set} from "firebase/database";
 import ThingsContext from "../../Context/ContextA";
+import notification from "../Notification/Notification";
 
 function AddTask() {
 
@@ -18,15 +19,20 @@ function AddTask() {
 
     let formHandler = e => {
         e.preventDefault();
-        Context.dispatch({type: 'add_task', key: Date.now(), done: false, text});
+        if (text !== '') {
+            Context.dispatch({type: 'add_task', key: Date.now(), done: false, text});
 
-        set(ref(db, `${ContextUser.uid}/${Date.now()}`), {
-            key: Date.now(),
-            done: false,
-            text
-        }).then(r => '');
-        setText('');
+            set(ref(db, `${ContextUser.uid}/${Date.now()}`), {
+                key: Date.now(),
+                done: false,
+                text
+            }).then(r => '');
+            notification('success', 'Task added')
+            setText('');
 
+        } else {
+            notification('error', 'Please enter some')
+        }
     };
 
     let inputHandler = e => {

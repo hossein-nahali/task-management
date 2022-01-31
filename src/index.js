@@ -4,10 +4,16 @@ import './index.css';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/scss/bootstrap.scss'
+import {AuthProvider} from "./hook/useAuth";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <AuthProvider>
+            <App/>
+            <ToastContainer/>
+        </AuthProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

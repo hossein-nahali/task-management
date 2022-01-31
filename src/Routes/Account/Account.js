@@ -25,7 +25,6 @@ function Account() {
                 SetLoading(true);
                 SetUser(user);
                 context.SetUid(user.uid);
-                // ...
             } else {
                 SetLoading(true);
             }

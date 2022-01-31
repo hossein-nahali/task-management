@@ -3,11 +3,10 @@ import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
 
 // import css
 import './css/LoginForm.scss'
-import 'react-toastify/dist/ReactToastify.css';
 import Loading from "../Loading/Loading";
-import 'react-toastify/dist/ReactToastify.css';
-import {ToastContainer, toast} from 'react-toastify';
 import ThingsContext from "../../Context/ContextA";
+import notification from "../Notification/Notification";
+import validateEmail from "../ValidateEmail/ValidateEmail";
 
 function SignUp(props) {
     const [loading, SetLoading] = useState(true);
@@ -15,39 +14,6 @@ function SignUp(props) {
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const things = useContext(ThingsContext);
-
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-    };
-
-    const notification = (type, text) => {
-        switch (type) {
-            case 'error' :
-                return toast.error(text, {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    theme: 'colored',
-                });
-            default:
-                return toast.error(text, {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    theme: 'colored',
-                });
-        }
-    }
 
     const register = async (e) => {
         e.preventDefault();
@@ -76,7 +42,6 @@ function SignUp(props) {
             SetLoading(true);
             notification('error', 'invalid email')
         }
-
     }
 
     return (
@@ -84,15 +49,6 @@ function SignUp(props) {
             <div className="parent-form">
                 {
                     <>
-                        <ToastContainer position="top-right"
-                                        autoClose={3000}
-                                        newestOnTop={false}
-                                        rtl={false}
-                                        pauseOnFocusLoss
-                                        hideProgressBar={true}
-                                        draggable
-                                        pauseOnHover={false}
-                                        theme={'colored'}/>
                         {
                             loading ?
                                 <form onSubmit={register}>

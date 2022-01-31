@@ -3,14 +3,14 @@ import 'firebase/database';
 import {getAuth} from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBw3TvzFRmTN0ylaUMsfaVg0Ady7jt58mM",
-    authDomain: "task-b3792.firebaseapp.com",
-    databaseURL: "https://task-b3792-default-rtdb.firebaseio.com",
-    projectId: "task-b3792",
-    storageBucket: "task-b3792.appspot.com",
-    messagingSenderId: "485912114351",
-    appId: "1:485912114351:web:4e99261d1bd1d299dbd05a",
-    measurementId: "G-PN8K8G6CYQ"
+    apiKey: process.env.REACT_APP_FB_API,
+    authDomain: process.env.REACT_APP_FB_DOMAIN,
+    databaseURL: process.env.REACT_APP_FB_URL,
+    projectId: process.env.REACT_APP_FB_PROJECT,
+    storageBucket: process.env.REACT_APP_FB_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FB_SENDER,
+    appId: process.env.REACT_APP_FB_APP,
+    measurementId: process.env.REACT_APP_FB_MEASUREMENT
 };
 
 const app = firebase.initializeApp(firebaseConfig);

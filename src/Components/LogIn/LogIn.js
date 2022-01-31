@@ -1,47 +1,15 @@
 import React, {useState} from "react";
 import './css/LogIn.scss';
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {toast, ToastContainer} from "react-toastify";
 import Loading from "../Loading/Loading";
+import notification from "../Notification/Notification";
+import validateEmail from "../ValidateEmail/ValidateEmail";
 
 function LogIn(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loadinga, SetLoading] = useState(true);
-    const [texterr, SetTexterr] = useState();
+    const [loading, SetLoading] = useState(true);
 
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-    };
-
-    const notification = (type, text) => {
-        switch (type) {
-            case 'error' :
-                return toast.error(text, {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    theme: 'colored',
-                });
-            default:
-                return toast.error(text, {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    theme: 'colored',
-                });
-        }
-    }
 
     const register = async (e) => {
         e.preventDefault();
@@ -76,18 +44,8 @@ function LogIn(props) {
 
             {
                 <>
-
-                    <ToastContainer position="top-right"
-                                    autoClose={3000}
-                                    newestOnTop={false}
-                                    rtl={false}
-                                    pauseOnFocusLoss
-                                    hideProgressBar={true}
-                                    draggable
-                                    pauseOnHover={false}
-                                    theme={'colored'}/>
                     {
-                        loadinga ?
+                        loading ?
                             <form onSubmit={register} className={'login'}>
                                 <div className="input-email">
                                     <input type="text" id={'email-login'} required value={email}
