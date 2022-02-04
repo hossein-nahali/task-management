@@ -43,14 +43,6 @@ function AppReducer(prevState, action) {
                 ]
             }
 
-        // case 'register':
-        //     let newStateDelete = prevState.Tasks.filter(item => item.key !== action.item.key);
-        //     return {
-        //         Tasks: [
-        //             ...newStateDelete,
-        //         ]
-        //     }
-
         default:
             return prevState;
     }

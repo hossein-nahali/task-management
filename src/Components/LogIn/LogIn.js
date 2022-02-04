@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import './css/LogIn.scss';
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import Loading from "../Loading/Loading";
-import notification from "../Notification/Notification";
-import validateEmail from "../ValidateEmail/ValidateEmail";
+import notification from "../../package/Notification/Notification";
+import validateEmail from "../../package/ValidateEmail/ValidateEmail";
 
 function LogIn(props) {
     const [email, setEmail] = useState('');

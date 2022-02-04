@@ -5,8 +5,8 @@ import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
 import './css/LoginForm.scss'
 import Loading from "../Loading/Loading";
 import ThingsContext from "../../Context/ContextA";
-import notification from "../Notification/Notification";
-import validateEmail from "../ValidateEmail/ValidateEmail";
+import notification from "../../package/Notification/Notification";
+import validateEmail from "../../package/ValidateEmail/ValidateEmail";
 
 function SignUp(props) {
     const [loading, SetLoading] = useState(true);
